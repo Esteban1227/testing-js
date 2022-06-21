@@ -52,14 +52,16 @@ jobs:
     container:
       image: node:14
 
-    service:
+    services:
       mongo-e2e:
         image: mongo:4.4
         ports:
             - 27017:27017
-          env:
-            MONGO_INITDB_ROOT_USERNAME: test
-            MONGO_INITDB_ROOT_PASSWORD: test123
+        env:
+          MONGO_INITDB_ROOT_USERNAME: test
+          MONGO_INITDB_ROOT_PASSWORD: test123
+
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
